@@ -1,0 +1,71 @@
+.formTitle {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 40px;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: #11101c;
+  margin-bottom: 20px;
+}
+
+.formText {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.25;
+  color: rgba(17, 16, 28, 0.5);
+  margin-bottom: 40px;
+}
+
+.formInputs {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-bottom: 40px;
+}
+
+.input {
+  border: 1px solid rgba(17, 16, 28, 0.1);
+  border-radius: 12px;
+  padding: 16px 16px 16px 18px;
+  width: 438px;
+  height: 52px;
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #11101c;
+}
+
+.input::placeholder {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #11101c;
+}
+
+.button {
+  border-radius: 30px;
+  padding: 16px;
+  width: 438px;
+  height: 52px;
+  background: #f03f3b;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: #fbfbfb;
+}
+
+.passwordWrapper {
+  position: relative;
+}
+
+.passwordButton {
+  position: absolute;
+  right: 16px;
+  top: 16px;
+  background-color: transparent;
+}

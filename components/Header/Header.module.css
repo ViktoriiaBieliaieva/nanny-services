@@ -1,0 +1,38 @@
+.header {
+  position: absolute;
+  padding: 20px 96px;
+  display: flex;
+  align-items: center;
+  z-index: 10;
+  border-bottom: 1px solid rgba(251, 251, 251, 0.4);
+}
+
+.headerLink {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 1.17;
+  letter-spacing: -0.02em;
+  color: #fbfbfb;
+  margin-right: 487px;
+}
+
+.navigation {
+  display: flex;
+  gap: 92px;
+  align-items: center;
+}
+
+.menuGroup {
+  display: flex;
+  gap: 40px;
+}
+
+.menuLink {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: #fbfbfb;
+}

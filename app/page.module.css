@@ -1,0 +1,120 @@
+.section {
+  padding: 32px 0px;
+  background: #fbfbfb;
+}
+
+.container {
+  margin: 0px 32px;
+  border-radius: 30px;
+  background: #f03f3b;
+  display: flex;
+  position: relative;
+}
+
+.textWrapper {
+  padding: 251px 64px 163px 96px;
+}
+
+.title {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 70px;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: #fbfbfb;
+  margin-bottom: 28px;
+}
+
+.description {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 1.07;
+  letter-spacing: -0.02em;
+  color: #fbfbfb;
+  margin-bottom: 64px;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  border: 1px solid rgba(251, 251, 251, 0.4);
+  border-radius: 30px;
+  padding: 18px 40px;
+  width: 230px;
+  height: 60px;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: #fbfbfb;
+}
+
+.iconHover {
+  display: none;
+  transition: display 1000ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.link:hover .iconDefault,
+.link:focus .iconDefault {
+  display: none;
+}
+
+.link:hover .iconHover,
+.link:focus .iconHover {
+  display: block;
+}
+
+.imageWrapper {
+  background-image: url('/HeroBanner1x.jpg');
+  background-repeat: no-repeat;
+  min-width: 699px;
+  height: 736px;
+  position: relative;
+}
+
+.experience {
+  border-radius: 20px;
+  width: 284px;
+  height: 118px;
+  background: #fbfbfb;
+  position: absolute;
+  right: 50px;
+  bottom: 50px;
+  padding: 32px;
+  display: flex;
+  gap: 16px;
+}
+
+.square {
+  border-radius: 13px;
+  width: 54px;
+  height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f03f3b;
+}
+
+.experienceWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.experienceText {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  color: rgba(17, 16, 28, 0.5);
+}
+
+.experienceNumber {
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: 24px;
+  color: #11101c;
+}
