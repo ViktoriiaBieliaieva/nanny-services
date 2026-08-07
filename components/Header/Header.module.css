@@ -1,10 +1,21 @@
 .header {
-  position: absolute;
   padding: 20px 96px;
+  width: 100%;
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  gap: 32px;
   z-index: 10;
+}
+
+.homeHeader {
+  position: absolute;
   border-bottom: 1px solid rgba(251, 251, 251, 0.4);
+}
+
+.innerHeader {
+  position: relative;
+  background: #f03f3b;
 }
 
 .headerLink {
@@ -14,25 +25,91 @@
   line-height: 1.17;
   letter-spacing: -0.02em;
   color: #fbfbfb;
-  margin-right: 487px;
 }
 
 .navigation {
   display: flex;
   gap: 92px;
   align-items: center;
+  justify-content: flex-end;
 }
 
 .menuGroup {
   display: flex;
   gap: 40px;
+  align-items: center;
 }
 
 .menuLink {
+  position: relative;
+  display: inline-block;
   font-family: var(--font-family);
   font-weight: 400;
   font-size: 16px;
   line-height: 1.25;
   letter-spacing: -0.01em;
   color: #fbfbfb;
+}
+
+.active::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -12px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #fff;
+  transform: translateX(-50%);
+}
+
+@media screen and (max-width: 1199px) {
+  .header {
+    padding: 20px 48px;
+  }
+
+  .navigation {
+    gap: 40px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .header {
+    padding: 18px 24px;
+    flex-wrap: wrap;
+  }
+
+  .navigation {
+    width: 100%;
+    justify-content: space-between;
+    gap: 20px;
+  }
+
+  .menuGroup {
+    gap: 24px;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .header {
+    padding: 16px;
+    gap: 20px;
+  }
+
+  .headerLink {
+    font-size: 20px;
+  }
+
+  .navigation {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .menuGroup {
+    gap: 18px;
+  }
+
+  .menuLink {
+    font-size: 15px;
+  }
 }

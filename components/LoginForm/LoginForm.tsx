@@ -3,6 +3,8 @@ import css from './LoginForm.module.css';
 import { loginUser } from '@/lib/auth';
 import { useState } from 'react';
 import { FiEyeOff, FiEye } from 'react-icons/fi';
+import * as Yup from 'yup';
+import { yupResolver } from '@hookform/resolvers/yup';
 
 type LoginFormProps = {
   onSuccess: () => void;
@@ -13,14 +15,22 @@ type Inputs = {
   password: string;
 };
 
+const LoginFormSchema = Yup.object().shape({
+  email: Yup.string().trim().email('Invalid email address').required('Email is required'),
+  password: Yup.string().required('Password is required'),
+});
+
 export default function LoginForm({ onSuccess }: LoginFormProps) {
   const [showPassword, setShowPassword] = useState(false);
 
   const {
     register,
     handleSubmit,
-    formState: { errors },
-  } = useForm<Inputs>();
+    formState: { errors, isSubmitting },
+  } = useForm<Inputs>({
+    resolver: yupResolver(LoginFormSchema),
+    mode: 'onTouched',
+  });
 
   const onSubmit: SubmitHandler<Inputs> = async data => {
     try {
@@ -40,7 +50,7 @@ export default function LoginForm({ onSuccess }: LoginFormProps) {
       </p>
       <div className={css.formInputs}>
         <input className={css.input} placeholder="Email" {...register('email')} />
-        {errors.email && <p>{errors.email.message}</p>}
+        {errors.email && <p className={css.error}>{errors.email.message}</p>}
         <div className={css.passwordWrapper}>
           <input
             type={showPassword ? 'text' : 'password'}
@@ -57,11 +67,11 @@ export default function LoginForm({ onSuccess }: LoginFormProps) {
             {showPassword ? <FiEye /> : <FiEyeOff />}
           </button>
         </div>
-        {errors.password && <p>{errors.password.message}</p>}
+        {errors.password && <p className={css.error}>{errors.password.message}</p>}
       </div>
 
-      <button className={css.button} type="submit">
-        Log In
+      <button className={css.button} type="submit" disabled={isSubmitting}>
+        {isSubmitting ? 'Logging in...' : 'Log In'}
       </button>
     </form>
   );

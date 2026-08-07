@@ -5,13 +5,19 @@ import { useAuthStore } from '@/lib/store/authStore';
 import { useRouter } from 'next/navigation';
 import { logoutUser } from '@/lib/auth';
 import clsx from 'clsx';
+import { IoPerson } from 'react-icons/io5';
 
 interface AuthNavigationProps {
   onLoginClick: () => void;
   onRegisterClick: () => void;
+  isInnerPage?: boolean;
 }
 
-export default function AuthNavigation({ onLoginClick, onRegisterClick }: AuthNavigationProps) {
+export default function AuthNavigation({
+  onLoginClick,
+  onRegisterClick,
+  isInnerPage = false,
+}: AuthNavigationProps) {
   const router = useRouter();
   const { isAuthenticated, user } = useAuthStore();
   const clearIsAuthenticated = useAuthStore(state => state.clearIsAuthenticated);
@@ -25,11 +31,14 @@ export default function AuthNavigation({ onLoginClick, onRegisterClick }: AuthNa
       {isAuthenticated ? (
         <ul className={css.loggedGroup}>
           <li className={css.loggedItem}>
-            <p>{user?.username}</p>
+            <div className={css.square}>
+              <IoPerson color="#f03f3b"></IoPerson>
+            </div>
+            <p className={css.name}>{user?.username}</p>
           </li>
 
-          <li className={css.loggedItem}>
-            <button onClick={handleLogout} className={css.logoutButton}>
+          <li>
+            <button onClick={handleLogout} className={clsx(css.navigationButton, css.loginButton)}>
               Log out
             </button>
           </li>
@@ -43,7 +52,10 @@ export default function AuthNavigation({ onLoginClick, onRegisterClick }: AuthNa
           </li>
 
           <li className={css.authItem}>
-            <button className={clsx(css.navigationButton, css.regButton)} onClick={onRegisterClick}>
+            <button
+              className={clsx(css.navigationButton, css.regButton, isInnerPage && css.innerButton)}
+              onClick={onRegisterClick}
+            >
               Registration
             </button>
           </li>

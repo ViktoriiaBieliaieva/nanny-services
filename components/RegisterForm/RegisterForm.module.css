@@ -69,3 +69,11 @@
   top: 16px;
   background-color: transparent;
 }
+
+.error {
+  display: block;
+  color: #e53935;
+  font-size: 14px;
+  font-weight: 400;
+  margin-bottom: 12px;
+}

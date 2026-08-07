@@ -11,7 +11,7 @@
 body {
   color: #11101c;
   background: #fbfbfb;
-  font-family: var(--font-inter), sans-serif;
+  font-family: var(--font-family);
   margin: 0;
 }
 

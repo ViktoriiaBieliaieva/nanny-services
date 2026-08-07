@@ -139,14 +139,11 @@
   color: #8a8a89;
 }
 
-/* .metaItem::after {
-  display: inline-block;
-  content: '';
-  margin-left: 16px;
-  width: 1px;
-  height: 16px;
-  background-color: rgba(17, 16, 28, 0.2);
-} */
+.age {
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+  color: #11101c;
+}
 
 .metaSpan {
   color: #11101c;
@@ -170,4 +167,83 @@
   text-decoration-skip-ink: none;
   color: #11101c;
   background-color: transparent;
+}
+
+.expandedInfo {
+  margin-top: 48px;
+}
+
+.reviewsList {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  margin-bottom: 48px;
+}
+
+.reviewItem {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.reviewHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.reviewAvatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 100%;
+  background: rgba(240, 63, 59, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1;
+  color: #f03f3b;
+  flex-shrink: 0;
+}
+
+.reviewerName {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #11101c;
+  margin-bottom: 4px;
+}
+
+.reviewRatingText {
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.29;
+  color: #11101c;
+  display: flex;
+  align-items: center;
+}
+
+.reviewComment {
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.25;
+  color: rgba(17, 16, 28, 0.5);
+}
+
+.appointmentButton {
+  border-radius: 30px;
+  padding: 14px 28px;
+  min-width: 215px;
+  min-height: 48px;
+  background: #f03f3b;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  color: #fbfbfb;
 }
