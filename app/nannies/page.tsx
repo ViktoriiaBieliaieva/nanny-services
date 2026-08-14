@@ -1,38 +1,28 @@
 'use client';
 import Header from '@/components/Header/Header';
 import { useEffect, useState } from 'react';
-import { ref, onValue } from 'firebase/database';
-import { database } from '@/lib/firebase';
-import { NannyFromDb, Nanny } from '@/types/nanny';
+import { Nanny } from '@/types/nanny';
 import css from './Nannies.module.css';
 import Image from 'next/image';
 import { IoLocationOutline } from 'react-icons/io5';
 import { FaStar } from 'react-icons/fa';
 import { FaRegHeart } from 'react-icons/fa';
+import { getNannies } from '@/lib/nannies';
 
 const Nannies = () => {
   const [nannies, setNannies] = useState<Nanny[]>([]);
   const [expandedNannyId, setExpandedNannyId] = useState<string | null>(null);
 
   useEffect(() => {
-    const nanniesRef = ref(database, 'nannies');
-
-    const unsubscribe = onValue(nanniesRef, snapshot => {
-      const data = snapshot.val() as Record<string, NannyFromDb> | null;
-
-      if (data) {
-        const nanniesArray = Object.entries(data).map(([id, nanny]) => ({
-          id,
-          ...nanny,
-        }));
-
-        setNannies(nanniesArray);
-      } else {
-        setNannies([]);
+    async function loadNannies() {
+      try {
+        const nannniesData = await getNannies();
+        setNannies(nannniesData);
+      } catch (error) {
+        console.error('Failed to load nannies:', error);
       }
-    });
-
-    return () => unsubscribe();
+    }
+    loadNannies();
   }, []);
 
   const getAge = (birthday: string) => {
