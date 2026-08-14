@@ -75,6 +75,7 @@ export default function RegisterForm({ onSuccess }: RegisterFormProps) {
           <button
             className={css.passwordButton}
             type="button"
+            aria-label={showPassword ? 'Hide password' : 'Show password'}
             onClick={() => setShowPassword(!showPassword)}
           >
             {showPassword ? <FiEye /> : <FiEyeOff />}

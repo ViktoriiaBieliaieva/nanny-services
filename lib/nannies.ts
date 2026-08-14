@@ -14,3 +14,20 @@ export async function getNannies() {
     ...nanny,
   }));
 }
+
+export function getAge(birthday: string) {
+  const birthDate = new Date(birthday);
+  const today = new Date();
+
+  let age = today.getFullYear() - birthDate.getFullYear();
+
+  const birthdayHasNotPassedYet =
+    today.getMonth() < birthDate.getMonth() ||
+    (today.getMonth() === birthDate.getMonth() && today.getDate() < birthDate.getDate());
+
+  if (birthdayHasNotPassedYet) {
+    age -= 1;
+  }
+
+  return age;
+}

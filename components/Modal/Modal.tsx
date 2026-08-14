@@ -33,7 +33,7 @@ export default function Modal({ onClose, children }: ModalProps) {
   return createPortal(
     <div onClick={handleBackdropClick} className={css.backdrop} role="dialog" aria-modal="true">
       <div className={css.modal}>
-        <button onClick={onClose} className={css.closeButton}>
+        <button onClick={onClose} className={css.closeButton} aria-label="Close modal">
           <IoMdClose size={32} />
         </button>
         {children}
